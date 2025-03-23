@@ -10,7 +10,7 @@ pipeline {
         USER = 'jenkins'  // You can set user in the environment
     }
     stages {
-        stage('rk docker build') {
+        stage('rk build') {
             steps {
                 sh '''
                     echo 'step 1'
@@ -25,7 +25,10 @@ pipeline {
         }
         stage('rk test') {
             steps {
-                sh "echo 'test is fine, too'"
+                sh ''' 
+                    "test -f build/index.html"
+                    npm test 
+                '''
             }
         }
     }
