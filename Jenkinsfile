@@ -17,7 +17,7 @@ pipeline {
         }
         stage('rk test') {
             steps {
-                sh "echo 'test is fine'"
+                sh "echo 'test is fine, too'"
             }
         }
     }
