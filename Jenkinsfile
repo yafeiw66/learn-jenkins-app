@@ -15,5 +15,10 @@ pipeline {
                 sh 'npm --version'
             }
         }
+        stage('rk test') {
+            steps {
+                sh "echo 'test is fine'"
+            }
+        }
     }
 }
