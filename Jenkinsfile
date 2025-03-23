@@ -3,6 +3,7 @@ pipeline {
         docker {
             image 'node:18-alpine'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
+            reuseNode true
         }
     }
     environment {
@@ -11,8 +12,15 @@ pipeline {
     stages {
         stage('rk docker build') {
             steps {
-                sh "echo 'Hello World'"
-                sh 'npm --version'
+                sh '''
+                    echo 'step 1'
+                    ls -la
+                    node --version
+                    npm --version
+                    npm ci
+                    npm run build
+                    ls -la
+                '''
             }
         }
         stage('rk test') {
