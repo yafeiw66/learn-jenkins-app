@@ -6,9 +6,9 @@ pipeline {
             reuseNode true
         }
     }
-    environment {
-        USER = 'jenkins'  // You can set user in the environment
-    }
+    // environment {
+    //     USER = 'jenkins'  // You can set user in the environment
+    // }
     stages {
         stage('rk build') {
             steps {
